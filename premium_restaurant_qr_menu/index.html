@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Premium Menu | Restaurant & Café</title>
+  <meta name="description" content="Menu digital premium avec commande WhatsApp sans API." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="hero">
+    <nav class="topbar">
+      <div class="brand">
+        <div class="logo">R</div>
+        <div>
+          <strong>Royal Taste</strong>
+          <span>Restaurant & Café</span>
+        </div>
+      </div>
+      <button class="cart-pill" id="openCartBtn">
+        <span>🛒 Panier</span>
+        <b id="cartCount">0</b>
+      </button>
+    </nav>
+
+    <section class="hero-content">
+      <p class="eyebrow">QR Smart Ordering</p>
+      <h1>Commandez depuis votre table, rapidement et avec style.</h1>
+      <p class="hero-text">Scannez le QR code, choisissez vos plats, entrez le numéro de table, puis envoyez la commande directement sur WhatsApp.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn primary">Voir le menu</a>
+        <button class="btn ghost" id="howBtn">Comment ça marche ?</button>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="info-strip" id="howBox">
+      <div><b>1</b><span>Choisissez vos produits</span></div>
+      <div><b>2</b><span>Ajoutez au panier</span></div>
+      <div><b>3</b><span>Écrivez la table</span></div>
+      <div><b>4</b><span>Envoyez sur WhatsApp</span></div>
+    </section>
+
+    <section class="controls" id="menu">
+      <div>
+        <p class="eyebrow dark">Notre menu</p>
+        <h2>Catégories</h2>
+      </div>
+      <div class="search-wrap">
+        <span>🔎</span>
+        <input type="search" id="searchInput" placeholder="Rechercher: café, burger, pizza..." />
+      </div>
+    </section>
+
+    <section class="categories" id="categoryTabs"></section>
+    <section class="products-grid" id="productsGrid"></section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-card">
+      <div class="drawer-head">
+        <div>
+          <p class="eyebrow dark">Votre commande</p>
+          <h3>Panier</h3>
+        </div>
+        <button class="icon-btn" id="closeCartBtn">✕</button>
+      </div>
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <div class="table-box">
+        <label for="tableNumber">Numéro de table</label>
+        <input type="number" id="tableNumber" placeholder="Ex: 12" min="1" />
+      </div>
+
+      <div class="note-box">
+        <label for="clientNote">Note optionnelle</label>
+        <textarea id="clientNote" placeholder="Ex: sans oignon, moins de sucre..."></textarea>
+      </div>
+
+      <div class="total-row">
+        <span>Total</span>
+        <strong id="cartTotal">0 DH</strong>
+      </div>
+
+      <button class="send-btn" id="sendWhatsAppBtn">Envoyer la commande sur WhatsApp</button>
+      <button class="clear-btn" id="clearCartBtn">Vider le panier</button>
+    </div>
+  </aside>
+
+
+  <div class="bottom-cart" id="bottomCart" aria-hidden="true">
+    <div class="bottom-cart-head">
+      <div>
+        <strong>Votre panier</strong>
+        <span id="bottomCartSummary">0 article • 0 DH</span>
+      </div>
+      <button class="bottom-cart-toggle" id="bottomCartToggle" type="button">Voir</button>
+    </div>
+
+    <div class="bottom-cart-body" id="bottomCartBody">
+      <div class="bottom-cart-items" id="bottomCartItems"></div>
+
+      <label class="bottom-table-label" for="bottomTableNumber">Numéro de table <b>*</b></label>
+      <input type="number" id="bottomTableNumber" class="bottom-table-input" placeholder="Ex: 12" min="1" />
+
+      <label class="bottom-table-label" for="bottomClientNote">Remarques</label>
+      <textarea id="bottomClientNote" class="bottom-note-input" placeholder="Ex: sans oignon, moins de sucre..."></textarea>
+
+      <button class="bottom-confirm-btn" id="bottomConfirmBtn" type="button">Confirm Order</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Produit ajouté au panier ✅</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
